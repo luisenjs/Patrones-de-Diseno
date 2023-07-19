@@ -1,0 +1,6 @@
+Strategy\Paypal.class
+Strategy\PagoStrategy.class
+com\mycompany\patronstrategy\PatronStrategy.class
+Strategy\FastSpring.class
+Strategy\AmazonPay.class
+Context\Context.class
