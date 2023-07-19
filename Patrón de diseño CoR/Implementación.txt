@@ -1,0 +1,72 @@
+Chain of Responsability: El sistema de entrutamiendo en una red.
+
+interface Enrutador {
+	public void setNext(Enrutador e);
+	public void enrutar(G datos);
+}
+
+class RouterA implements Enrutador {
+	Ernrutador next;
+	@Override
+	public void setNext(Enrutador e){
+		this.next = e;
+	}
+
+	@Override
+	public void enrutar(G datos){
+		System.out.printf("Pasó prueba A");
+		...
+		System.out.printf("No pasó prueba A");
+		...
+		if(next != null)
+			next.enrutar(datos);
+	}
+}
+
+class RouterB implements Enrutador {
+	Ernrutador next;
+	@Override
+	public void setNext(Enrutador e){
+		this.next = e;
+	}
+
+	@Override
+	public void enrutar(G datos){
+		System.out.printf("Pasó prueba B");
+		...
+		System.out.printf("No pasó prueba B");
+		...
+		if(next != null)
+			next.enrutar(datos);
+	}
+}
+
+class RouterC implements Enrutador {
+	Ernrutador next;
+	@Override
+	public void setNext(Enrutador e){
+		this.next = e;
+	}
+
+	@Override
+	public void enrutar(G datos){
+		System.out.printf("Pasó prueba C");
+		...
+		System.out.printf("No pasó prueba C");
+		...
+		if(next != null)
+			next.enrutar(datos);
+	}
+}
+
+class Red {
+	public static void main(String[] args){
+		Enrutador r1 = new RouterA();
+		Enrutador r2 = new RouterB();
+		Enrutador r3 = new RouterC();
+		r1.setNext(r2);
+		r2.setNext(r3);
+		...
+		r1.enrutar(datos);
+	}
+}

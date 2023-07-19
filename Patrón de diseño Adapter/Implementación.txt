@@ -1,0 +1,31 @@
+Adapter: Cable Ethernet a USB para la computadora.
+
+class USB implements Connectable {
+	@Override
+	public void connect(){
+		System.out.printf("Conectando USB");
+	}
+}
+
+class Ethernet {
+	public void attach(){
+		System.out.printf("Conectando cable Ethernet");
+	}
+}
+
+class EthernetAdapter implements Connectable {
+	...
+	@Override
+	public void connect(){
+		ethernet.attach();
+	}
+}
+
+class Computer{
+	public static void main(String[] args){
+		Connectable usb = new USB();
+		Connectable ethernet = new EthernetAdapter();
+		usb.connect();
+		ethernet.connect();
+	}
+}

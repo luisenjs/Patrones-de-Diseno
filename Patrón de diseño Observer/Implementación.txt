@@ -1,0 +1,39 @@
+Observer: Seguidores en una red social.
+
+class Creator {
+
+	private List<Follower> followers = new ArrayList();
+	
+	public void action(G data){
+		System.out.printf("Realizando acciones");
+		notify(data);
+	}
+
+	public void addFollower(Follower f){
+		followers.add(f);
+	}
+
+	public void deleteFollower(Follower f){
+		followers.remove(f);
+	}
+
+	public void noify(G data){
+		for (Follower f : followers){
+			f.update(data);
+		}
+	}
+}
+
+class Follower {
+	public void follow(Creator c){
+		c.addFollower(this);
+	}
+
+	public void unfollow(Creator c){
+		c.deleteFollower(this);
+	}
+
+	public update(G data){
+		...
+	}
+}
